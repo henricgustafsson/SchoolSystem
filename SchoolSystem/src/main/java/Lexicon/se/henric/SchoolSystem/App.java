@@ -1,5 +1,6 @@
 package Lexicon.se.henric.SchoolSystem;
 
+
 /**
  * Hello world!
  *
@@ -11,3 +12,6 @@ public class App
         System.out.println( "Hello World!" );
     }
 }
+
+
+
