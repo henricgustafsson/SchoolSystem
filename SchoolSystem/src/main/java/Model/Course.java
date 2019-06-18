@@ -114,13 +114,15 @@ public class Course implements StudentCourseRelationsShipInterface{
 		if(student==null) {
 			throw new NullPointerException();
 		}
-		if(students.add(student)) {
-			student.getCourses().add(this);
-			return true;
+		if(!students.contains(student)) {
+			if(students.add(student)) {
+				return student.getCourses().add(this);
+			}
+			
 		}
 		return false;
 	
-	
+
 	}
 
 	/**
@@ -129,19 +131,16 @@ public class Course implements StudentCourseRelationsShipInterface{
 	 */
 	@Override
 	public boolean unregister(Student student) {
-		//Todo: implement unregister
+		if(student==null) {
+			throw new NullPointerException();
+		}
+		if(students.contains(student)) {
+			if(students.remove(student)) {
+				return student.getCourses().remove(this);
+			}
+			
+		}
 		return false;
-	}
-	
-	/** TODO: move to studentDao and make one for courses too?
-	 * Method for mapping list of Student objects
-	 * @param List students
-	 * @return Map<Integer,String> studentsMap
-	 */
-	public static Map<Integer,String> mapStudents(List<Student> students)
-	{
-	    Map<Integer, String> studentsMap = students.stream().collect(Collectors.toMap(Student :: getId, Student :: getFullName));
-	    return studentsMap;
 	}
 	
 	
@@ -195,6 +194,10 @@ public class Course implements StudentCourseRelationsShipInterface{
 		if (weekDuration != other.weekDuration)
 			return false;
 		return true;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	

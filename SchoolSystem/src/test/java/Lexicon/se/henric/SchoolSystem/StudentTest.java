@@ -43,7 +43,7 @@ public class StudentTest {
 		assertTrue(testStudent.getId() == testStudentId);
 		assertTrue(testStudent.getFullName().equalsIgnoreCase(testStudentName));
 		assertTrue(testStudent.getAdress().equalsIgnoreCase(testStudentAddress));
-		
+		assertTrue(testStudent.getEmail().equalsIgnoreCase("mcteston@test.com"));
 	
 	}
 	
