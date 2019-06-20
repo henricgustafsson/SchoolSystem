@@ -15,6 +15,6 @@ public class GUI {
 	}
 	
 	public String createNewStudentAndSave() {
-		//OutPutHandler.outPutMessage("");
+		return null;
 	}
 }
