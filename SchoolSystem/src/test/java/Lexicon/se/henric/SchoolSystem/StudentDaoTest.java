@@ -40,7 +40,7 @@ public class StudentDaoTest {
 	public void FindByEmailWitValidEmailSHouldAssertTrue() {
 		testStudentDaoList.clearStudentList();
 		testStudentDaoList.saveStudent(testStudent);
-		assertTrue(testStudentDaoList.findByEmail("testian@testmail.com").equals(testStudent));
+		assertTrue(testStudentDaoList.findStudentByEmail("testian@testmail.com").equals(testStudent));
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class StudentDaoTest {
 		testStudentDaoList.clearStudentList();
 		testStudentDaoList.saveStudent(testStudent);
 		try {
-			testStudentDaoList.findByEmail("");
+			testStudentDaoList.findStudentByEmail("");
 		}
 		catch(Exception e){
 			//thats ok it should throw InvalidParameterException
@@ -59,10 +59,9 @@ public class StudentDaoTest {
 
 	@Test
 	public void FindByNameWithEmptyStringlSHouldThrowException() {
-		testStudentDaoList.clearStudentList();
-		testStudentDaoList.saveStudent(testStudent);
+		
 		try {
-			testStudentDaoList.findByName("");
+			testStudentDaoList.findStudentByName("");
 		}
 		catch(Exception e){
 			//thats ok it should throw InvalidParameterException
@@ -74,7 +73,7 @@ public class StudentDaoTest {
 		testStudentDaoList.clearStudentList();
 		testStudentDaoList.saveStudent(testStudent);
 		
-		assertTrue(testStudentDaoList.findByName("testian").contains(testStudent));	
+		assertTrue(testStudentDaoList.findStudentByName("testian").contains(testStudent));	
 	}
 	
 
@@ -83,14 +82,14 @@ public class StudentDaoTest {
 		testStudentDaoList.clearStudentList();
 		int id =testStudentDaoList.saveStudent(testStudent).getId();
 		
-		assertTrue(testStudentDaoList.findById(id).equals(testStudent));	
+		assertTrue(testStudentDaoList.findStudentById(id).equals(testStudent));	
 	}
 	
 	@Test
 	public void FindByIDWithInValidIDShouldThrowException() {
 			
 		try {
-			testStudentDaoList.findById(25);
+			testStudentDaoList.findStudentById(25);
 		} catch (Exception e) {
 			//its ok it should throw IllegalStateException
 		}	

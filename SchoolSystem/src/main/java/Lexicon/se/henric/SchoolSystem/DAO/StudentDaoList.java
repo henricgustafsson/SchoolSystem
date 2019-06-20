@@ -29,7 +29,7 @@ public class StudentDaoList implements StudentDao{
 	}
 
 	@Override
-	public Student findByEmail(String email) {
+	public Student findStudentByEmail(String email) {
 		
 		if (!email.trim().isEmpty()) {
 			List <Student> results =students.stream()
@@ -47,7 +47,7 @@ public class StudentDaoList implements StudentDao{
 	}
 
 	@Override
-	public List<Student> findByName(String name) {
+	public List<Student> findStudentByName(String name) {
 		if(!name.isEmpty()) {
 			
 			return students.stream()
@@ -59,7 +59,7 @@ public class StudentDaoList implements StudentDao{
 	}
 
 	@Override
-	public Student findById(int id) {
+	public Student findStudentById(int id) {
 		
 		List <Student> results =students.stream()
 				.filter(student->student.getId()==id)

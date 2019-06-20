@@ -68,7 +68,7 @@ public class CourseTest {
 	public void testRegisterShouldAssertTrue() {
 		testCourse.getStudents().clear();
 		testStudent.getCourses().clear();
-		assertTrue(testCourse.register(testStudent));
+		assertTrue(testCourse.registerStudentToCourse(testStudent));
 		assertTrue(testCourse.getStudents().contains(testStudent));
 		assertTrue(testStudent.getCourses().contains(testCourse));
 	}
@@ -76,7 +76,7 @@ public class CourseTest {
 	@Test
 	public void registerNullStudentShouldThrowExc() {
 		try {
-			assertFalse(testCourse.register(null));
+			assertFalse(testCourse.registerStudentToCourse(null));
 		} catch (Exception e) {			
 			//That's ok, it should throw an NullPointerException
 			//check if it contains a null pointer, don't want
@@ -89,8 +89,8 @@ public class CourseTest {
 	public void registeringSameStudentTwiceShouldAssertFalse() {
 		testStudent.getCourses().clear();
 		testCourse.getStudents().clear();
-		testCourse.register(testStudent);
-		assertFalse(testCourse.register(testStudent));
+		testCourse.registerStudentToCourse(testStudent);
+		assertFalse(testCourse.registerStudentToCourse(testStudent));
 		
 	}
 
@@ -99,8 +99,8 @@ public class CourseTest {
 	public void testUnregisterShouldAssertTrue() {
 		testCourse.getStudents().clear();
 		testStudent.getCourses().clear();
-		assertTrue(testCourse.register(testStudent));
-		assertTrue(testCourse.unregister(testStudent));
+		assertTrue(testCourse.registerStudentToCourse(testStudent));
+		assertTrue(testCourse.unregisterStudentFromCourse(testStudent));
 		assertFalse(testCourse.getStudents().contains(testStudent));
 		assertFalse(testStudent.getCourses().contains(testCourse));
 	}
@@ -110,7 +110,7 @@ public class CourseTest {
 		testCourse.getStudents().clear();
 		testStudent.getCourses().clear();
 		try {
-			assertFalse(testCourse.unregister(null));
+			assertFalse(testCourse.unregisterStudentFromCourse(null));
 		}
 		catch (Exception e) {
 			assertFalse(testCourse.getStudents().contains(null));
@@ -123,7 +123,7 @@ public class CourseTest {
 		testCourse.getStudents().clear();
 		testStudent.getCourses().clear();
 		try {
-			assertFalse(testCourse.unregister(testStudent));
+			assertFalse(testCourse.unregisterStudentFromCourse(testStudent));
 		}
 		catch (Exception e) {
 			assertFalse(testCourse.getStudents().contains(testStudent));

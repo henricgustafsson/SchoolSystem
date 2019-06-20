@@ -8,9 +8,9 @@ import Model.Student;
 public interface StudentDao {
 
 	Student saveStudent(Student student);
-	Student findByEmail(String email);
-	List<Student> findByName(String name);
-	Student findById(int id);
+	Student findStudentByEmail(String email);
+	List<Student> findStudentByName(String name);
+	Student findStudentById(int id);
 	boolean deleteStudent(Student student);
 	
 }

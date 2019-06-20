@@ -109,7 +109,7 @@ public class Course implements StudentCourseRelationsShipInterface{
 	 * @return boolean
 	 */
 	@Override
-	public boolean register(Student student) {
+	public boolean registerStudentToCourse(Student student) {
 		
 		if(student==null) {
 			throw new NullPointerException();
@@ -130,7 +130,7 @@ public class Course implements StudentCourseRelationsShipInterface{
 	 * for unregistering a student to a course
 	 */
 	@Override
-	public boolean unregister(Student student) {
+	public boolean unregisterStudentFromCourse(Student student) {
 		if(student==null) {
 			throw new NullPointerException();
 		}

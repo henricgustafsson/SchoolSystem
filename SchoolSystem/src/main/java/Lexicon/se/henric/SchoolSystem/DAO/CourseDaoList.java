@@ -14,6 +14,9 @@ public class CourseDaoList implements CourseDao{
 
 	private static ArrayList<Course> courses;
 
+	/**
+	 * Constructor
+	 */
 	public CourseDaoList() {
 		courses = new ArrayList<Course>();
 	}
@@ -27,8 +30,14 @@ public class CourseDaoList implements CourseDao{
 		throw new NullPointerException();
 	}
 
+	/**
+	 * Overriden method implementing interface CourseDaoList.findByID
+	 * @param int id
+	 * @return Course
+	 *  @throws IllegalStateException
+	 */
 	@Override
-	public Course findByID(int id) {
+	public Course findCourseById(int id) {
 		List <Course> results =courses.stream()
 				.filter(course->course.getId()==id)
 				.collect(Collectors.toList());
@@ -40,8 +49,15 @@ public class CourseDaoList implements CourseDao{
 				return results.get(0);
 	}
 
+	
+	/**
+	 * Overriden method implementing interface CourseDaoList.findByName
+	 * @param String name
+	 * @return List<Course>
+	 *  @throws IllegalStateException
+	 */
 	@Override
-	public List<Course> findByName(String name) {
+	public List<Course> findCourseByName(String name) {
 		if(!name.isEmpty()) {
 			
 			return courses.stream()
@@ -52,8 +68,14 @@ public class CourseDaoList implements CourseDao{
 		throw new InvalidParameterException("Invalid imput, please try again");
 	}
 
+	/**
+	 * Overriden method implementing interface CourseDaoList.findByDate
+	 * @param LocalDate date
+	 * @return List<Course>
+	 *  @throws NullPointerException
+	 */
 	@Override
-	public List<Course> findByDate(LocalDate date) {
+	public List<Course> findCourseByDate(LocalDate date) {
 		if(date !=null) {
 			
 			return courses.stream()
@@ -61,19 +83,38 @@ public class CourseDaoList implements CourseDao{
 					.collect(Collectors.toList());
 		}
 		
-		throw new InvalidParameterException("Invalid imput, please try again");
+		throw new NullPointerException("Invalid imput, please try again");
 	}
 
+	
+	/**
+	 * Overriden method implementing interface CourseDaoList.findAll
+	 * @return List<Course>
+	 */
 	@Override
-	public List<Course> findAll() {
+	public List<Course> findAllCourses() {
 		
 		return courses;
 	}
 
+
+	
+
+	/**
+	 * Overriden method implementing interface CourseDaoList.removeCourse
+	 * @param Course course
+	 * @return boolean
+	 */
 	@Override
 	public boolean removeCourse(Course course) {
 		
 		return courses.remove(course);
 	}
 
+	/**
+	 * Method for clearing field List<Course> courses
+	 */
+	public void clearCourseList() {
+		courses.clear();
+	}
 }
