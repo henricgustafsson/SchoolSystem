@@ -72,6 +72,10 @@ public class StudentDaoList implements StudentDao{
 				return results.get(0);
 		
 	}
+	
+	public List<Student> getAllStudents(){
+		return students;
+	}
 
 	@Override
 	public boolean deleteStudent(Student student) {

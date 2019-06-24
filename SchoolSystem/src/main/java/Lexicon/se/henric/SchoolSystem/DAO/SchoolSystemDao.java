@@ -76,6 +76,10 @@ public class SchoolSystemDao implements StudentDao,CourseDao{
 		
 		return studentDaoList.findStudentById(id);
 	}
+	
+	public List<Student> getAllStudents(){
+		return studentDaoList.getAllStudents();
+	}
 
 	@Override
 	public boolean deleteStudent(Student student) {

@@ -1,29 +1,36 @@
 package GUI;
 
-import java.time.DateTimeException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
 
 public class InputHandler {
 
 	Scanner sc;
+	private OutPutHandler outputHandler;
 	
-	public InputHandler() {
+	public InputHandler(OutPutHandler output) {
 		sc = new Scanner(System.in);
+		outputHandler = output;
 	}
-	public String getStringInput() {
+	public String getStringInput(String message) {
+		outputHandler.outPutMessage(message);
 		return sc.nextLine();
 	}
-	public LocalDate getInputAsDate() {
+	public LocalDate getInputAsDate(String message) {
+		outputHandler.outPutMessage(message);
 		String input =sc.nextLine();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		LocalDate date;
+		
 		
 		return LocalDate.parse(input, formatter);
 	}
-	public int getInputAsInt() {
+	public int getInputAsInt(String message) {
+		outputHandler.outPutMessage(message);
 		return sc.nextInt();
 	}
+	
+	
 }
