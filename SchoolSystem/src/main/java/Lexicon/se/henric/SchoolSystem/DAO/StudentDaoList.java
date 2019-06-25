@@ -47,7 +47,7 @@ public class StudentDaoList implements StudentDao{
 	}
 
 	@Override
-	public List<Student> findStudentByName(String name) {
+	public List<Student> findStudentsByName(String name) {
 		if(!name.isEmpty()) {
 			
 			return students.stream()

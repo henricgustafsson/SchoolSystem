@@ -30,15 +30,15 @@ public class SchoolSystemDao implements StudentDao,CourseDao{
 	}
 
 	@Override
-	public List<Course> findCourseByName(String name) {
+	public List<Course> findCoursesByName(String name) {
 		
-		return courseDaoList.findCourseByName(name);
+		return courseDaoList.findCoursesByName(name);
 	}
 
 	@Override
-	public List<Course> findCourseByDate(LocalDate date) {
+	public List<Course> findCoursesByDate(LocalDate date) {
 		
-		return courseDaoList.findCourseByDate(date);
+		return courseDaoList.findCoursesByDate(date);
 	}
 
 	@Override
@@ -66,9 +66,9 @@ public class SchoolSystemDao implements StudentDao,CourseDao{
 	}
 
 	@Override
-	public List<Student> findStudentByName(String name) {
+	public List<Student> findStudentsByName(String name) {
 		
-		return studentDaoList.findStudentByName(name);
+		return studentDaoList.findStudentsByName(name);
 	}
 
 	@Override

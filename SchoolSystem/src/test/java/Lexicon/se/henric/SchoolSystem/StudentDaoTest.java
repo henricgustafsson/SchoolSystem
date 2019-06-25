@@ -61,7 +61,7 @@ public class StudentDaoTest {
 	public void FindByNameWithEmptyStringlSHouldThrowException() {
 		
 		try {
-			testStudentDaoList.findStudentByName("");
+			testStudentDaoList.findStudentsByName("");
 		}
 		catch(Exception e){
 			//thats ok it should throw InvalidParameterException
@@ -73,7 +73,7 @@ public class StudentDaoTest {
 		testStudentDaoList.clearStudentList();
 		testStudentDaoList.saveStudent(testStudent);
 		
-		assertTrue(testStudentDaoList.findStudentByName("testian").contains(testStudent));	
+		assertTrue(testStudentDaoList.findStudentsByName("testian").contains(testStudent));	
 	}
 	
 

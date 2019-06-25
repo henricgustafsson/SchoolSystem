@@ -86,7 +86,7 @@ public class CourseDaoTest {
 	public void FindByNameWithEmptyStringlSHouldThrowException() {
 		
 		try {
-			courseDaoTest.findCourseByName("");
+			courseDaoTest.findCoursesByName("");
 		}
 		catch(Exception e){
 			//thats ok it should throw InvalidParameterException
@@ -98,7 +98,7 @@ public class CourseDaoTest {
 	
 		courseDaoTest.clearCourseList();
 		String name = courseDaoTest.saveCourse(testCourse).getCourseName();
-		assertTrue(courseDaoTest.findCourseByName(name).contains(testCourse));	
+		assertTrue(courseDaoTest.findCoursesByName(name).contains(testCourse));	
 	}
 	
 	
@@ -106,14 +106,14 @@ public class CourseDaoTest {
 	public void FindByCourseDateWithValidDateShouldAssertTrue() {
 		courseDaoTest.clearCourseList();
 		LocalDate date = courseDaoTest.saveCourse(testCourse).getCourseDate();
-		assertTrue(courseDaoTest.findCourseByDate(date).contains(testCourse));
+		assertTrue(courseDaoTest.findCoursesByDate(date).contains(testCourse));
 	}
 	
 	@Test
 	public void FindByCourseDateWithNullPointerDateThrowException() {
 		
 		try {
-			courseDaoTest.findCourseByDate(null);
+			courseDaoTest.findCoursesByDate(null);
 		}
 		catch (Exception e) {
 			// its ok it should throw IllegalStateException

@@ -57,7 +57,7 @@ public class CourseDaoList implements CourseDao{
 	 *  @throws IllegalStateException
 	 */
 	@Override
-	public List<Course> findCourseByName(String name) {
+	public List<Course> findCoursesByName(String name) {
 		if(!name.isEmpty()) {
 			
 			return courses.stream()
@@ -75,7 +75,7 @@ public class CourseDaoList implements CourseDao{
 	 *  @throws NullPointerException
 	 */
 	@Override
-	public List<Course> findCourseByDate(LocalDate date) {
+	public List<Course> findCoursesByDate(LocalDate date) {
 		if(date !=null) {
 			
 			return courses.stream()

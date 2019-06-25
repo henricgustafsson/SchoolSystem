@@ -9,7 +9,7 @@ public interface StudentDao {
 
 	Student saveStudent(Student student);
 	Student findStudentByEmail(String email);
-	List<Student> findStudentByName(String name);
+	List<Student> findStudentsByName(String name);
 	Student findStudentById(int id);
 	boolean deleteStudent(Student student);
 	

@@ -174,5 +174,11 @@ public class Student implements Comparable<Student> {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		
+		return " "+getId()+" "+getFullName()+" "+getAdress()+" "+ getEmail();
+	}
+	
 	
 }
